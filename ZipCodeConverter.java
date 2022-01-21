@@ -11,7 +11,7 @@ public class ZipCodeConverter {
 
         System.out.println("Welcome to zipcode converter! Choose an option!");
 
-        while (isRunning == true){
+        while (isRunning){
             String optionsInput = "";
 
             System.out.println();
