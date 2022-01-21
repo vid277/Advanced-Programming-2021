@@ -1,11 +1,19 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * The type Zip code converter.
+ */
 public class ZipCodeConverter {
 
     private Scanner scannerInput;
     private static HashMap<Integer, String> storeConversion;
 
+    /**
+     * Instantiates a new Zip code converter.
+     */
     public ZipCodeConverter() {
         boolean isRunning = true;
 
@@ -81,15 +89,14 @@ public class ZipCodeConverter {
         String finalString = "|";
         int sum = 0;
 
-        for (int x = 0; x < zipcode.length(); x++){
+        for (int x = 0; x < zipcode.length(); x++) {
             sum += Integer.parseInt(zipcode.substring(x, x + 1));
         }
 
-        if (sum%10 == 0){
+        if (sum % 10 == 0) {
             checkDigit = 11;
-        }
-        else{
-            checkDigit = (10 - sum%10);
+        } else {
+            checkDigit = (10 - sum % 10);
         }
 
         for (int i = 0; i < zipcode.length(); i++) {
@@ -100,7 +107,36 @@ public class ZipCodeConverter {
         System.out.println("Your bars are: " + finalString);
     }
 
-    private void convertToZipcode (String userInputBars){
+    private void convertToZipcode(String userInputBars) {
+        ArrayList<String> splitBarCodes = new ArrayList<>();
+        String userInputs = userInputBars.substring(1, userInputBars.length()-1);
+        String finalZipcode = "";
+        //System.out.println(userInputs);
 
+        if (userInputs.length()%5 == 0){
+            int counter = 0;
+            for (int i = 0; i < (userInputs.length()/5); i++) {
+                splitBarCodes.add(userInputs.substring(counter, counter + 5));
+                //System.out.println(userInputs.substring(counter, counter + 5));
+                counter+=5;
+            }
+        }
+
+        for (String numbers : splitBarCodes){
+            storeConversion.get(numbers);
+        }
+
+        for (String numbers : splitBarCodes){
+            for (Map.Entry<Integer, String> entry: storeConversion.entrySet())
+            {
+                if (numbers.equals(entry.getValue())) {
+                    finalZipcode = finalZipcode + (entry.getKey()).toString();
+                }
+            }
+        }
+
+        finalZipcode = finalZipcode.substring(0, finalZipcode.length()-1);
+        System.out.println(finalZipcode);
     }
+
 }
