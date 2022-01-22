@@ -111,13 +111,11 @@ public class ZipCodeConverter {
         ArrayList<String> splitBarCodes = new ArrayList<>();
         String userInputs = userInputBars.substring(1, userInputBars.length()-1);
         String finalZipcode = "";
-        //System.out.println(userInputs);
 
         if (userInputs.length()%5 == 0){
             int counter = 0;
             for (int i = 0; i < (userInputs.length()/5); i++) {
                 splitBarCodes.add(userInputs.substring(counter, counter + 5));
-                //System.out.println(userInputs.substring(counter, counter + 5));
                 counter+=5;
             }
         }
@@ -136,7 +134,13 @@ public class ZipCodeConverter {
         }
 
         finalZipcode = finalZipcode.substring(0, finalZipcode.length()-1);
-        System.out.println(finalZipcode);
+
+        if (finalZipcode.length() != 5){
+            System.out.println("Not a valid zipcode. Code not find these bars.");
+        }
+        else{
+            System.out.println(finalZipcode);
+        }
     }
 
 }
