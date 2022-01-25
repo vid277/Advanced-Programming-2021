@@ -74,20 +74,18 @@ public class ZipCodeConverter {
 
             //Makes sure that the user inputs something
             if (optionsInput.equals("")) {
-                System.out.println("Enter a zipcode!");
+                System.out.println("Enter a valid option!");
 
             } else if (optionsInput.equals("1")) {
                 System.out.println("Enter a zipcode: ");
-                String enteredValue = scannerInput.nextLine();
-
-                //Making sure that the zipcode input by the user is at least 5 digits
-                if (enteredValue.length() != 5 || !Character.isDigit(enteredValue.charAt(0))) {
-                    System.out.println("Error! Enter a valid zipcode!");
-                } else {
-                    convertToBars(enteredValue);
+                String zip = String.valueOf(getNumber(scannerInput));
+                if (zip.length() != 5){
+                    System.out.println("Enter a valid zipcode!");
+                }
+                else {
+                    convertToBars(zip);
                     isRunning = false;
                 }
-
             } else if (optionsInput.equals("2")) {
                 System.out.println("Enter bars: ");
                 String enteredValue = scannerInput.nextLine();
@@ -203,4 +201,12 @@ public class ZipCodeConverter {
         }
     }
 
+    private int getNumber(Scanner input) {
+        while (true) {
+            try { return Integer.valueOf(input.nextLine()); }
+            catch (NumberFormatException e) {}
+            System.out.println("That wasn't a valid number");
+            beginOptions();
+        }
+    }
 }
