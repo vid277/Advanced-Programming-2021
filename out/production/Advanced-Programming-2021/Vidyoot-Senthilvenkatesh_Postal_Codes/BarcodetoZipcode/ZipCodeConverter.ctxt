@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=ZipCodeConverter
+comment0.text=\r\n\ This\ class\ converts\ 5-digit\ zipcodes\ into\ barcodes,\ and\ barcodes\ back\ into\ 5-digit\ zipcodes\r\n\r\n\ @author\ Vidyoot\ Senthilvenkatesh\r\n\ @version\ 1/22/2022\r\n
+comment1.params=
+comment1.target=ZipCodeConverter()
+comment1.text=\r\n\ Initializes\ Scanner\ and\ the\ Hashmap\r\n\ Adds\ all\ the\ numbers\ and\ their\ barcodes\ to\ the\ hashmap\r\n
+comment2.params=
+comment2.target=void\ beginOptions()
+comment2.text=\r\n\ This\ method\ displays\ options\ and\ gets\ input\ from\ the\ user\ using\ the\ scanner\ class\r\n\ This\ method\ runs\ until\ the\ user\ inputs\ a\ valid\ option,\ or\ the\ user\ decides\ to\ exit\r\n\ Calls\ the\ convertToZipcode\ or\ convertToBars\ methods\ based\ on\ user\ input\r\n
+comment3.params=userInputZipcode
+comment3.target=void\ convertToBars(java.lang.String)
+comment3.text=\r\n\ Converts\ the\ 5-digit\ zipcode\ input\ by\ the\ user\ into\ a\ barcode\ that\ takes\r\n\ the\ zipcode\ input\ by\ the\ user\ as\ input.\r\n\r\n\ @param\ userInputZipcode\ -\ The\ zipcode\ input\ by\ the\ user\r\n
+comment4.params=userInputBars
+comment4.target=void\ convertToZipcode(java.lang.String)
+comment4.text=\r\n\ Converts\ the\ barcode\ input\ by\ the\ user\ into\ a\ 5-digit\ zipcode\r\n\r\n\ @param\ userInputBars\ -\ The\ barcode\ input\ by\ the\ user\r\n
+comment5.params=input
+comment5.target=int\ getNumber(java.util.Scanner)
+numComments=6
