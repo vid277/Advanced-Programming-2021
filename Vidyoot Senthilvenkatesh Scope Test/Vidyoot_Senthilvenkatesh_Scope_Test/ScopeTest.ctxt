@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=ScopeTest
+comment0.text=\r\n\ This\ class\ is\ supposed\ to\ demonstrate\ the\ difference\ of\ passing\ by\ value\ versus\ passing\ by\ reference\r\n\ \r\n\ @Author\:\ Vidyoot\ Senthilvenkatesh\r\n\ @Date\:\ 1/25/2022\r\n
+comment1.params=
+comment1.target=ScopeTest()
+comment2.params=
+comment2.target=java.lang.String\ getS()
+comment3.params=
+comment3.target=int\ getX()
+comment4.params=
+comment4.target=double[]\ getDA()
+comment5.params=
+comment5.target=java.lang.String[]\ getSA()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\ \ Formats\ and\ prints\ the\ strings\r\n\ \ \ Appends\ the\ elements\ from\ the\ Double\ and\ String\ array\ to\ a\ larger\ string\r\n\r\n\ \ \ @return\ the\ final\ string\ that\ contains\ the\ concatenated\ output\r\n
+comment7.params=x1\ s1\ dArray1\ sArray1
+comment7.target=java.lang.String\ foobar(int,\ java.lang.String,\ double[],\ java.lang.String[])
+comment7.text=\ \ Formats\ and\ edits\ all\ the\ variables\r\n\ \ \ Changes\ the\ values\ in\ the\ String\ and\ Double\ arrays;\r\n\r\n\ \ \ @param\ the\ variables\ that\ have\ to\ be\ changed\r\n\ \ \ @return\ the\ final\ string\ that\ contains\ the\ concatenated\ output\r\n
+comment8.params=args
+comment8.target=void\ main(java.lang.String[])
+numComments=9
