@@ -1,25 +1,26 @@
-import java.util.Random;
-
+/**
+ * This class extends the abstract class ticket and returns the price of the walk-up Ticket
+ *
+ * @author Vidyoot Senthilvenkatesh
+ * @version 2/3/2022
+ */
 public class WalkupTicket extends Ticket {
 
-    public WalkupTicket(){
-        Random random = new Random();
-        int serialNumber = 0;
-
-        serialNumber = random.nextInt(100, 1000);
-
-        if (getLastSerialNumber() == serialNumber){
-            while (getLastSerialNumber() == serialNumber) {
-                serialNumber = random.nextInt(100, 1000);
-            }
-        }
+    /**
+     * This class returns the price of the walk-up ticket
+     *
+     * @return the price of the walk-up ticket
+     */
+    public double ticketCost() {
+        return 50.0;
     }
 
-    public void ticketCost() {
-
-    }
-
+    /**
+     * This class returns the type of the ticket
+     *
+     * @return the type of the ticket
+     */
     public String getName() {
-        return null;
+        return "Walk-up Ticket";
     }
 }
