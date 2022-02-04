@@ -8,8 +8,11 @@ import java.util.ArrayList;
  * @date 1/28/2022
  */
 public class ShapeTester {
-
     public static void main(String[] args){
+        new ShapeTester();
+    }
+
+    public ShapeTester() {
         //Instantiates a new object and provides parameters for each shape object
         Shape squareObj = new Square(11.00, 10.00);
         Shape triangleObj = new Triangle(11.00, 10.00, 10.00, 10.00);
