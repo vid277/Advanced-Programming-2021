@@ -23,12 +23,11 @@ public class AdvanceTicket extends Ticket {
      */
     @Override
     public double ticketCost() {
-       if (Numberofdays >= 10){
+        if (Numberofdays >= 10) {
             return 30.0;
-       }
-       else {
-           return 40.0;
-       }
+        } else {
+            return 40.0;
+        }
     }
 
     /**
