@@ -1,9 +1,5 @@
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Screen_GUI extends JFrame {
@@ -14,20 +10,29 @@ public class Screen_GUI extends JFrame {
     private String[] buttons;
 
     public Screen_GUI() throws IOException {
-
-        BufferedImage image = ImageIO.read(
-                new URL(".//img1.jpg"));
-
-        JPanel p = new JPanel();
         JFrame frame = new JFrame("Animal Hospital");
-        frame.setSize(1920, 1080);
+        setLayout(new BorderLayout());
+        JPanel p = new JPanel();
+        p.setPreferredSize(new Dimension(400, 300));
+        JLabel emp1 = new JLabel(" ", JLabel.CENTER);
+        JLabel title = new JLabel("Please choose one", JLabel.CENTER);
+        JLabel title2 = new JLabel(" of the following: ", JLabel.CENTER);
+        JLabel emp3 = new JLabel(" ", JLabel.CENTER);
+        title.setFont(new Font("Serif", Font.PLAIN, 24));
+        title2.setFont(new Font("Serif", Font.PLAIN, 24));
 
-        frame.setBackground(Color.blue);
-        frame.setVisible(true);
+        buttons = new String[7];
 
-        JOptionPane jPane = new JOptionPane();
+        title.setBackground(Color.ORANGE);
+        title2.setBackground(Color.ORANGE);
 
-        p.show();
+        p.setLayout(new GridLayout(4, 2, 1, 1));
+
+        p.add(title, BorderLayout.CENTER);
+        add(p, BorderLayout.CENTER);
         pack();
+        setVisible(true);
+
+        p.setBackground(Color.WHITE);
     }
 }

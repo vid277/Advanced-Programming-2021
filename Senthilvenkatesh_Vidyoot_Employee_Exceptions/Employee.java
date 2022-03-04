@@ -26,15 +26,17 @@ public class Employee {
     }
 
     public void setEmployeeNumber(String employeeNumber) throws InvalidEmployeeNumber {
-        Pattern pattern = Pattern.compile("\\d\\d\\d-[A-M]");
-        Matcher matchPattern = pattern.matcher(employeeNumber);
-        boolean match = matchPattern.matches();
+        if (employeeNumber != null){
+            Pattern pattern = Pattern.compile("\\d\\d\\d-[A-M]");
+            Matcher matchPattern = pattern.matcher(employeeNumber);
+            boolean match = matchPattern.matches();
 
-        if(match){
-            this.employeeNumber = employeeNumber;
-        }
-        else {
-            throw new InvalidEmployeeNumber("Incorrect Employee Number Format: ", employeeNumber);
+            if(match){
+                this.employeeNumber = employeeNumber;
+            }
+            else {
+                throw new InvalidEmployeeNumber("Incorrect Employee Number Format: ", employeeNumber);
+            }
         }
     }
 

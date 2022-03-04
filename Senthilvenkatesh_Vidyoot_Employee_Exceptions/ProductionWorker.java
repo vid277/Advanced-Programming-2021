@@ -4,8 +4,10 @@ public class ProductionWorker extends Employee{
     private String shift;
     private double hourlyPayRate;
 
-    public ProductionWorker(String employeeName, String employeeNumber, Date hiredDate) throws InvalidEmployeeNumber {
+    public ProductionWorker(String employeeName, String employeeNumber, Date hiredDate, int shift, double hourlyPayRate) throws InvalidEmployeeNumber, InvalidPayRate, InvalidShift {
         super(employeeName, employeeNumber, hiredDate);
+        setShift(shift);
+        setHourlyPayRate(hourlyPayRate);
     }
 
     public String getShift() {
@@ -37,5 +39,10 @@ public class ProductionWorker extends Employee{
         else {
             throw new InvalidPayRate("Pay rate cannot be negative! Must be positive. User Input: ", hourlyPayRate);
         }
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Name: %s; ID Number: %s; Date Hired: %s; Shift: %s; Hourly Pay Rate: %f;", getEmployeeName(), getEmployeeNumber(), getHiredDate().toString().substring(0, 10), getShift(), getHourlyPayRate());
     }
 }
