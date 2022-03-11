@@ -1,0 +1,7 @@
+CAT
+smiley Pandya npandya@imsa.edu brown spayed 12
+DOG
+poodle Smith smith@google.com black neutered medium
+BIRD
+oakley Sanders sanders@yahoo.com purple female
+END

@@ -11,8 +11,6 @@ public class Dog extends Pet{
         return size;
     }
 
-    public String toString(){
-        return String.format("");
-    }
+    public String toString(){ return "Dog:\n" + super.toString() + "\n Size: " + getSize();}
 
 }

@@ -14,7 +14,7 @@ public class Bird extends Pet{
     }
 
     public String toString(){
-        return String.format("");
+        return "BIRD:\n" + super.toString();
     }
 
 }
