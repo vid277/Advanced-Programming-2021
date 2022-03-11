@@ -57,6 +57,7 @@ public class Pet implements Boardable {
             case 3:
                 return "Neutered";
         }
+        return "unspecified";
     }
 
     public String getEmail() {
