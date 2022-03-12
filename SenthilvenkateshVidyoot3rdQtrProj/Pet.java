@@ -11,8 +11,9 @@ public class Pet implements Boardable {
     private LocalDate boardingStartDate;
     private LocalDate boardingEndDate;
 
-    private static final LocalDate MINDATE = LocalDate.of(1950, 1, 1);
+    private static final LocalDate MINDATE = LocalDate.of(2012, 1, 1);
     private static final LocalDate MAXDATE = LocalDate.of(2022, 12, 31);
+
     public static final int MALE = 0;
     public static final int FEMALE = 1;
     public static final int SPAYED= 2;
@@ -52,10 +53,10 @@ public class Pet implements Boardable {
                 return "Male";
             case 1:
                 return "Female";
-            case 4:
-                return "Spayed";
-            case 3:
+            case 2:
                 return "Neutered";
+            case 3:
+                return "Spayed";
         }
         return "unspecified";
     }
@@ -64,8 +65,11 @@ public class Pet implements Boardable {
         return ownerEmail;
     }
 
+    @Override
     public String toString(){
-        return String.format("");
+        String finalString;
+        finalString = String.format("%s owned by %s\nOwner's email: %s\nPet Color: %s\nGender: %s", getPetName(), getOwnerName(), getEmail(), getColor(), getGender());
+        return finalString;
     }
 
     public void setBoardStart(int month, int day, int year) {
@@ -89,8 +93,8 @@ public class Pet implements Boardable {
 
         LocalDate EndBoardingDate = LocalDate.of(year, month, day);
 
-        if((boardingStartDate == null || !boardingEndDate.isBefore(boardingStartDate))){
-            if(!EndBoardingDate.isBefore(MINDATE) && EndBoardingDate.isBefore(MAXDATE)) {
+        if(boardingStartDate == null){
+            if(!EndBoardingDate.isBefore(MINDATE) && EndBoardingDate.isBefore(MAXDATE) && !boardingEndDate.isBefore(boardingStartDate)) {
                 boardingStartDate = EndBoardingDate;
             }
         }
@@ -127,5 +131,13 @@ public class Pet implements Boardable {
         }
 
         return isBoarded;
+    }
+
+    public String getBoardingStartDate() {
+        return boardingStartDate.toString();
+    }
+
+    public String getBoardingEndDate() {
+        return boardingEndDate.toString();
     }
 }

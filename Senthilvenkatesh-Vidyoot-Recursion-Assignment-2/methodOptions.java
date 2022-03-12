@@ -36,12 +36,12 @@ public class methodOptions {
     public int moveDisks(int num, int fromPeg, int toPeg, int TempPeg){
         if (num == 1)
         {
-            //System.out.println("Move a disk from peg " +  fromPeg + " to peg " + toPeg);
+            System.out.println("Move a disk from peg " +  fromPeg + " to peg " + toPeg);
             return numberOfTries + 1;
         }
         numberOfTries += 2;
         moveDisks(num-1, fromPeg, TempPeg, toPeg);
-        //System.out.println("Move a disk from " +  fromPeg + " to peg " + toPeg);
+        System.out.println("Move a disk from " +  fromPeg + " to peg " + toPeg);
         return moveDisks(num-1, TempPeg, toPeg, fromPeg);
     }
 

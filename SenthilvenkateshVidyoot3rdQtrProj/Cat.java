@@ -11,6 +11,6 @@ public class Cat extends Pet{
     }
 
     public String toString(){
-        return "CAT:\n" + super.toString() + "\n Hair Length: " + getHairLength();
+        return ("CAT:\n" + super.toString() + "\nHair Length: " + getHairLength());
     }
 }
