@@ -14,7 +14,7 @@ public class Bird extends Pet{
     }
 
     public String toString(){
-        return "BIRD:\n" + super.toString();
+        return "BIRD:\n" + super.toString() + "\nFeathers Clipped: " + clipped() + "\n";
     }
 
 }

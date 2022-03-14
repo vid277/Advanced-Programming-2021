@@ -106,7 +106,7 @@ public class AnimalHospital {
 
     public void printPetsBoarding(int month, int day, int year) throws IllegalDateException{
         System.out.println(DASHINGLINE);
-        System.out.printf("List of pets boarded on %d / %d / %d", month, day, year);
+        System.out.printf("List of pets boarded on %d / %d / %d \n", month, day, year);
         for (Pet pets : petList){
             if (pets.boarding(month, day, year)){
                 System.out.println(pets);

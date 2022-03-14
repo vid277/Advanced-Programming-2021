@@ -12,15 +12,22 @@ public class PetTester {
     public static ArrayList<Pet> petList = new ArrayList<Pet>();
 
     public PetTester(String nameOfFile) throws FileNotFoundException {
-        AnimalHospital trial1 = new AnimalHospital(nameOfFile);
-        trial1.printPetInfoByName("smiley");
-        trial1.printPetInfoByOwner("Sanders");
-        trial1.printPetsBoarding(11, 10, 2021);
+        try{
+            AnimalHospital trial1 = new AnimalHospital(nameOfFile);
+            trial1.printPetInfoByName("smiley");
+            trial1.printPetInfoByOwner("Sanders");
+            trial1.printPetsBoarding(11, 10, 2021);
+        } catch (IllegalEmailException e){
+            System.out.println(e);
+        } catch (IllegalDateException e){
+            System.out.println(e);
+        }
+
         //trial1.printPetsBoarding();
     }
 
     public static void main (String[] args) throws IOException {
-        new PetTester("petData.txt");
-        //new Screen_GUI();
+        //new PetTester("petData.txt");
+        new Screen_GUI();
     }
 }
