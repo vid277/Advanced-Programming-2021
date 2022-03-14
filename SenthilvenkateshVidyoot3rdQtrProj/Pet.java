@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 public class Pet implements Boardable {
 
@@ -19,11 +20,12 @@ public class Pet implements Boardable {
     public static final int SPAYED= 2;
     public static final int NEUTERED = 3;
 
+    public static final String EMAIL_VALIDATION_PATTERN = "^(.+)@(\\S+)$";
 
     public Pet(String name, String ownerName, String ownerEmail, String color){
         this.name = name;
         this.ownerName = ownerName;
-        this.ownerEmail = ownerEmail;
+        setOwnerEmail(ownerEmail);
         this.color = color;
         Gender = 404;
     }
@@ -113,24 +115,13 @@ public class Pet implements Boardable {
 
         LocalDate boardingDate = LocalDate.of(month, day, year);
 
-        if (boardingStartDate == boardingEndDate){
-            return false;
-        }
+       if((!boardingEndDate.isBefore(boardingStartDate))){
+           if(boardingDate.isBefore(MINDATE) || boardingDate.isAfter(MAXDATE)) {
+               throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
+           }
+       }
 
-        if((boardingStartDate == null || !boardingEndDate.isBefore(boardingStartDate))){
-            if(boardingDate.isBefore(MINDATE) || boardingDate.isAfter(MAXDATE)) {
-                throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
-            }
-        }
-
-        if (boardingDate.compareTo(boardingStartDate) >= 0 && boardingStartDate.compareTo(boardingEndDate) <= 0) {
-            isBoarded = true;
-        }
-        else{
-            isBoarded = false;
-        }
-
-        return isBoarded;
+        return boardingStartDate.compareTo(boardingDate) <= 0 && boardingDate.compareTo(boardingEndDate) <= 0;
     }
 
     public String getBoardingStartDate() {
@@ -139,5 +130,14 @@ public class Pet implements Boardable {
 
     public String getBoardingEndDate() {
         return boardingEndDate.toString();
+    }
+
+    public void setOwnerEmail(String ownerEmail){
+        if (Pattern.compile(EMAIL_VALIDATION_PATTERN).matcher(ownerEmail).matches()){
+            this.ownerEmail = ownerEmail;
+        }
+        else {
+            throw new IllegalEmailException("Illegal Email: " + ownerEmail);
+        }
     }
 }

@@ -2,10 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 
 public class AnimalHospital {
@@ -31,8 +28,6 @@ public class AnimalHospital {
     public AnimalHospital(String inputFile) throws FileNotFoundException {
         Random rand = new Random();
 
-        StartDatesBoarding = LocalDate.of(rand.nextInt(10) + 2012, rand.nextInt(11)+1, rand.nextInt(30)+1);
-
         storeFile = new File(inputFile);
 
         boolean isExists = storeFile.exists();
@@ -40,7 +35,7 @@ public class AnimalHospital {
         if (isExists){
             scanner = new Scanner(storeFile);
 
-            LocalDate StartDate = StartDatesBoarding.plus(rand.nextInt(100), ChronoUnit.DAYS);
+            LocalDate StartDate = LocalDate.of(rand.nextInt(10) + 2012, rand.nextInt(11)+1, rand.nextInt(30)+1);
             EndDate = StartDate.plus(rand.nextInt(121), ChronoUnit.DAYS);
 
             durationDate = EndDate.minus(StartDate.getMonthValue(), ChronoUnit.DAYS);
@@ -58,7 +53,7 @@ public class AnimalHospital {
                 }
                 else if (line.equalsIgnoreCase("dog")){
                     String[] information = scanner.nextLine().split(" ");
-                    Dog dog = new Dog(information[nameIndex], information[ownerNameIndex], information[ownerNameIndex], information[petColorIndex], information[otherInformationIndex]);
+                    Dog dog = new Dog(information[nameIndex], information[ownerNameIndex], information[ownerEmailIndex], information[petColorIndex], information[otherInformationIndex]);
                     dog.setGender(checkGender(information[genderIndex]));
                     dog.setBoardStart(StartDate.getMonthValue(), StartDate.getDayOfMonth(), StartDate.getYear());
                     dog.setBoardEnd(EndDate.getMonthValue(), EndDate.getDayOfMonth(), EndDate.getYear());
@@ -66,7 +61,7 @@ public class AnimalHospital {
                 }
                 else if(line.equalsIgnoreCase("bird")){
                     String[] information = scanner.nextLine().split(" ");
-                    Bird bird = new Bird(information[nameIndex], information[ownerNameIndex], information[ownerNameIndex], information[petColorIndex]);
+                    Bird bird = new Bird(information[nameIndex], information[ownerNameIndex], information[ownerEmailIndex], information[petColorIndex]);
                     bird.setGender(checkGender(information[genderIndex]));
                     bird.setBoardStart(StartDate.getMonthValue(), StartDate.getDayOfMonth(), StartDate.getYear());
                     bird.setBoardEnd(EndDate.getMonthValue(), EndDate.getDayOfMonth(), EndDate.getYear());
