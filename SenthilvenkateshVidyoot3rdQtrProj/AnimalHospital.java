@@ -85,34 +85,39 @@ public class AnimalHospital {
     }
 
 
-    public void printPetInfoByName(String name){
+    public Pet printPetInfoByName(String name){
         System.out.println(DASHINGLINE);
         for (Pet pets : petList){
             if (pets.getPetName().equalsIgnoreCase(name)){
                 System.out.println(pets);
+                return pets;
             }
         }
         System.out.println(DASHINGLINE);
+        return null;
     }
 
-    public void printPetInfoByOwner(String name){
+    public Pet printPetInfoByOwner(String name){
         System.out.println(DASHINGLINE);
         for (Pet pets : petList){
             if (pets.getOwnerName().equalsIgnoreCase(name)){
                 System.out.println(pets);
+                return pets;
             }
         }
+        return null;
     }
 
-    public void printPetsBoarding(int month, int day, int year) throws IllegalDateException{
+    public Pet printPetsBoarding(int month, int day, int year) throws IllegalDateException{
         System.out.println(DASHINGLINE);
         System.out.printf("List of pets boarded on %d / %d / %d \n", month, day, year);
         for (Pet pets : petList){
             if (pets.boarding(month, day, year)){
                 System.out.println(pets);
+                return pets;
             }
         }
-
+        return null;
     }
 
     public ArrayList<Pet> getPets() {

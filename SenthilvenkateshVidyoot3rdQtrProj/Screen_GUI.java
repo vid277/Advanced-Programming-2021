@@ -25,6 +25,7 @@ class Screen_GUI{
         JTextArea fileChooseOutput = new JTextArea("");
         JLabel monthLabel = new JLabel("mm/dd/yyyy");
         title.setVerticalAlignment(SwingConstants.CENTER);
+        JButton userFilters = new JButton("Search Options");
         frame.setLayout(null);
 
         frame.add(title);
@@ -34,6 +35,7 @@ class Screen_GUI{
         frame.add(fileChooseOutput);
         frame.add(dateFieldOutput);
         frame.add(monthLabel);
+        frame.add(userFilters);
 
         title.setFont(Bold_LARGE);
         dateField.setFont(NORMAL_MEDIUM);
@@ -57,7 +59,7 @@ class Screen_GUI{
         query.setFont(new Font("Verdana", Font.PLAIN, 15));
         query.setForeground(Color.BLACK);
 
-        fileChooser.setBounds(330, 160,150, 100);
+        fileChooser.setBounds(330, 160,150, 45);
         fileChooser.setFont(new Font("Verdana", Font.PLAIN, 15));
         fileChooser.setForeground(Color.BLACK);
 
@@ -74,8 +76,11 @@ class Screen_GUI{
         monthLabel.setBounds(365, 40,150, 40);
         monthLabel.setFont(new Font("Verdana", Font.BOLD, 11));
         monthLabel.setForeground(Color.BLACK);
-        //frame.setLayout(new GridLayout(2, 3));
         frame.setVisible(true);
+
+        userFilters.setBounds(330, 210,150, 45);
+        userFilters.setFont(new Font("Verdana", Font.PLAIN, 13));
+        userFilters.setForeground(Color.BLACK);
 
         query.addActionListener(
                 (evt) -> {
