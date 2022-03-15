@@ -114,7 +114,7 @@ public class AnimalHospital {
         for (Pet pets : petList){
             if (pets.boarding(month, day, year)){
                   System.out.println(pets);
-                return pets;
+                  return pets;
             }
         }
         return null;

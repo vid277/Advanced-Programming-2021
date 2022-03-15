@@ -25,7 +25,7 @@ public class PetTester {
     }
 
     public static void main (String[] args) throws IOException {
-        new PetTester("petData.txt");
-        //new Screen_GUI();
+        //new PetTester("petData.txt");
+        new Screen_GUI();
     }
 }

@@ -116,7 +116,7 @@ public class Pet implements Boardable {
             return false;
         }
 
-        LocalDate boardingDate = LocalDate.of(month, day, year);
+        LocalDate boardingDate = LocalDate.of(year, month, day);
 
         if((!boardingEndDate.isBefore(boardingStartDate))){
             if(boardingDate.isBefore(MINDATE) || boardingDate.isAfter(MAXDATE)) {
