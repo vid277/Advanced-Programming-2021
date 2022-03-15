@@ -4,7 +4,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 import static javax.swing.JOptionPane.showInputDialog;
 
@@ -137,7 +139,6 @@ class Screen_GUI {
                     } else {
                         fileChooseOutput.setText("Please choose a file!");
                         fileChooseOutput.setForeground(Color.RED);
-                        fileState = false;
                     }
                 }
         );
@@ -242,73 +243,96 @@ class Screen_GUI {
             String hairLength;
             String size;
 
-            if(type != null){
-                if (type.equalsIgnoreCase("cat") || type.equalsIgnoreCase("dog") || type.equalsIgnoreCase("bird")){
-                    ownerName = JOptionPane.showInputDialog(frame, "Input owner name!");
-                    if (ownerName != null){
-                        ownerEmail = JOptionPane.showInputDialog(frame, "Input owner email!");
-                        if (ownerEmail != null){
-                            petName = JOptionPane.showInputDialog(frame, "Input pet name!");
-                            if (petName != null){
-                                color = JOptionPane.showInputDialog(frame, "Input pet color!");
-                                if(color != null){
-                                    gender = JOptionPane.showInputDialog(frame, "Input pet gender!");
-                                    if (gender != null){
-                                        if (gender.equalsIgnoreCase("female") || gender.equalsIgnoreCase("male") || gender.equalsIgnoreCase("neutered") || gender.equalsIgnoreCase("spayed")){
-                                            if (type.equalsIgnoreCase("dog")){
-                                                size = JOptionPane.showInputDialog(frame, "Input dog size!");
-                                                if (size != null){
-                                                    JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
-                                                    sendDataDog(type, ownerName, ownerEmail, petName, color, gender, size);
+            if (fileState){
+                if(type != null && !type.equals("") && !type.equals(" ")){
+                    if (type.equalsIgnoreCase("cat") || type.equalsIgnoreCase("dog") || type.equalsIgnoreCase("bird")){
+                        ownerName = JOptionPane.showInputDialog(frame, "Input owner name!");
+                        if (ownerName != null && !ownerName.equals("") && !ownerName.equals(" ")){
+                            ownerEmail = JOptionPane.showInputDialog(frame, "Input owner email!");
+                            try {
+                                EmailValidator(ownerEmail);
+                            } catch (IllegalEmailException e){
+                                JOptionPane.showMessageDialog(frame, "Invalid Email!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
+                            if (ownerEmail != null && !ownerEmail.equals("") && !ownerEmail.equals(" ")){
+                                petName = JOptionPane.showInputDialog(frame, "Input pet name!");
+                                if (petName != null  && !petName.equals("") && !petName.equals(" ")){
+                                    color = JOptionPane.showInputDialog(frame, "Input pet color!");
+                                    if(color != null && !color.equals("") && !color.equals(" ")){
+                                        gender = JOptionPane.showInputDialog(frame, "Input pet gender!");
+                                        if (gender != null && !gender.equals("") && !gender.equals(" ")){
+                                            if (gender.equalsIgnoreCase("female") || gender.equalsIgnoreCase("male") || gender.equalsIgnoreCase("neutered") || gender.equalsIgnoreCase("spayed")){
+                                                if (type.equalsIgnoreCase("dog")){
+                                                    size = JOptionPane.showInputDialog(frame, "Input dog size!");
+                                                    if (size != null  && !size.equals("") && !size.equals(" ")){
+                                                        JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
+                                                        try {
+                                                            sendDataDog(type, ownerName, ownerEmail, petName, color, gender, size);
+                                                        } catch (FileNotFoundException e) {
+                                                            System.out.println(e);
+                                                        }
+                                                    }
+                                                    else {
+                                                        JOptionPane.showMessageDialog(frame, "Input dog size!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                                    }
                                                 }
-                                                else {
-                                                    JOptionPane.showMessageDialog(frame, "Input dog size!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                                else if (type.equalsIgnoreCase("cat")){
+                                                    hairLength = JOptionPane.showInputDialog(frame, "Input cat hair length!");
+                                                    if (hairLength != null && !hairLength.equals("") && !hairLength.equals(" ")){
+                                                        JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
+                                                        try {
+                                                            sendDataCat(type, ownerName, ownerEmail, petName, color, gender, hairLength);
+                                                        } catch (FileNotFoundException e) {
+                                                            System.out.println(e);
+                                                        }
+                                                    }
+                                                    else {
+                                                        JOptionPane.showMessageDialog(frame, "Input hair length!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                                    }
+                                                }
+                                                else if (type.equalsIgnoreCase("bird")){
+                                                    JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
+                                                    try {
+                                                        sendDataBird(type, ownerName, ownerEmail, petName, color, gender);
+                                                    } catch (FileNotFoundException e) {
+                                                        System.out.println(e);
+                                                    }
                                                 }
                                             }
-                                            else if (type.equalsIgnoreCase("cat")){
-                                                hairLength = JOptionPane.showInputDialog(frame, "Input cat hair length!");
-                                                if (hairLength != null){
-                                                    JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
-                                                    sendDataCat(type, ownerName, ownerEmail, petName, color, gender, hairLength);
-                                                }
-                                                else {
-                                                    JOptionPane.showMessageDialog(frame, "Input hair length!", "Warning!", JOptionPane.WARNING_MESSAGE);
-                                                }
-                                            }
-                                            else if (type.equalsIgnoreCase("bird")){
-                                                JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
-                                                sendDataBird(type, ownerName, ownerEmail, petName, color, gender);
+                                            else{
+                                                JOptionPane.showMessageDialog(frame, "Incorrect pet gender!", "Warning!", JOptionPane.WARNING_MESSAGE);
                                             }
                                         }
-                                        else{
-                                            JOptionPane.showMessageDialog(frame, "Incorrect pet gender!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                        else {
+                                            JOptionPane.showMessageDialog(frame, "Input the pet gender!", "Warning!", JOptionPane.WARNING_MESSAGE);
                                         }
                                     }
                                     else {
-                                        JOptionPane.showMessageDialog(frame, "Input the pet gender!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                        JOptionPane.showMessageDialog(frame, "Input a pet color!", "Warning!", JOptionPane.WARNING_MESSAGE);
                                     }
                                 }
                                 else {
-                                    JOptionPane.showMessageDialog(frame, "Input a pet color!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                    JOptionPane.showMessageDialog(frame, "Input a pet name!", "Warning!", JOptionPane.WARNING_MESSAGE);
                                 }
                             }
                             else {
-                                JOptionPane.showMessageDialog(frame, "Input a pet name!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.showMessageDialog(frame, "Input an owner email!", "Warning!", JOptionPane.WARNING_MESSAGE);
                             }
                         }
                         else {
-                            JOptionPane.showMessageDialog(frame, "Input an owner email!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(frame, "Input an owner name!", "Warning!", JOptionPane.WARNING_MESSAGE);
                         }
                     }
                     else {
-                        JOptionPane.showMessageDialog(frame, "Input an owner name!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(frame, "Invalid Pet Type!", "Warning!", JOptionPane.WARNING_MESSAGE);
                     }
                 }
-                else {
-                    JOptionPane.showMessageDialog(frame, "Invalid Pet Type!", "Warning!", JOptionPane.WARNING_MESSAGE);
-                }
-            }
-        });
+            } else {
+                fileChooseOutput.setText("Please choose a file first!");
+                JOptionPane.showMessageDialog(frame, "Please choose a file first!");
+            }}
+            );
     }
 
     public boolean checkIfValid(String dateInput) {
@@ -325,15 +349,33 @@ class Screen_GUI {
         return valid;
     }
 
-    public void sendDataBird(String type, String ownerName, String ownerEmail, String petName, String color, String gender){
+    public void sendDataBird(String type, String ownerName, String ownerEmail, String petName, String color, String gender) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
 
+        pw.println(type.toUpperCase()+"\n");
+        pw.printf("%s %s %s %s %s", petName, ownerName, ownerEmail, color, gender);
+        pw.close();
     }
 
-    public void sendDataDog(String type, String ownerName, String ownerEmail, String petName, String color, String gender, String size){
+    public void sendDataDog(String type, String ownerName, String ownerEmail, String petName, String color, String gender, String size) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
 
+        pw.println(type.toUpperCase()+"\n");
+        pw.printf("%s %s %s %s %s %s", petName, ownerName, ownerEmail, color, gender, size);
+        pw.close();
     }
 
-    public void sendDataCat(String type, String ownerName, String ownerEmail, String petName, String color, String gender, String hairLength){
+    public void sendDataCat(String type, String ownerName, String ownerEmail, String petName, String color, String gender, String hairLength) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
 
+        pw.println(type.toUpperCase()+"\n");
+        pw.printf("%s %s %s %s %s %s\n", petName, ownerName, ownerEmail, color, gender, hairLength);
+        pw.close();
+    }
+
+    public void EmailValidator(String ownerEmail){
+        if (!(Pattern.compile(Pet.EMAIL_VALIDATION_PATTERN).matcher(ownerEmail).matches())){
+            throw new IllegalEmailException("Illegal Email: " + ownerEmail);
+        }
     }
 }

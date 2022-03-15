@@ -4,4 +4,7 @@ DOG
 poodle Smith smith@google.com black neutered medium
 BIRD
 oakley Sanders sanders@yahoo.com purple female
-END
+BIRD
+Moose Patankar pptankar@imsa.edu purple female
+BIRD
+Horseshoe Pandya pnamrata@imsa.edu grey male

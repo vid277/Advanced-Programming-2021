@@ -13,6 +13,7 @@ public class Bird extends Pet{
         return featherClipped;
     }
 
+    @Override
     public String toString(){
         return "BIRD:\n" + super.toString() + "\nFeathers Clipped: " + clipped() + "\n";
     }

@@ -10,6 +10,7 @@ public class Cat extends Pet{
         return hairLength;
     }
 
+    @Override
     public String toString(){
         return ("CAT:\n" + super.toString() + "\nHair Length: " + getHairLength());
     }

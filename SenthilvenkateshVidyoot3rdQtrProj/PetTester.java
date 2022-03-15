@@ -15,8 +15,13 @@ public class PetTester {
         try{
             AnimalHospital trial1 = new AnimalHospital(nameOfFile);
             trial1.printPetInfoByName("smiley");
+            trial1.printPetInfoByName("Oakley");
             trial1.printPetInfoByOwner("Sanders");
+            trial1.printPetInfoByOwner("Oakley");
+            trial1.printPetInfoByOwner("Smith");
             trial1.printPetsBoarding(11, 10, 2021);
+            trial1.printPetsBoarding(12, 14, 2001);
+            trial1.printPetsBoarding(1, 11, 2001);
         } catch (IllegalEmailException | IllegalDateException e){
             System.out.println(e);
         }
