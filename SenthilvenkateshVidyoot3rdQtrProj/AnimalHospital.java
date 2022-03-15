@@ -7,14 +7,13 @@ import java.util.*;
 
 public class AnimalHospital {
 
-    private static final String DASHINGLINE = ("****************************************");
+    private static final String DASHING_LINE = ("****************************************");
 
     public Scanner scanner;
     public File storeFile;
 
-    public static ArrayList<Pet> petList = new ArrayList<Pet>();
+    public static ArrayList<Pet> petList = new ArrayList<>();
 
-    public LocalDate StartDatesBoarding;
     public static LocalDate EndDate;
     public LocalDate durationDate;
 
@@ -86,19 +85,19 @@ public class AnimalHospital {
 
 
     public Pet printPetInfoByName(String name){
-        System.out.println(DASHINGLINE);
+        System.out.println(DASHING_LINE);
         for (Pet pets : petList){
             if (pets.getPetName().equalsIgnoreCase(name)){
                 System.out.println(pets);
                 return pets;
             }
         }
-        System.out.println(DASHINGLINE);
+        System.out.println(DASHING_LINE);
         return null;
     }
 
     public Pet printPetInfoByOwner(String name){
-        System.out.println(DASHINGLINE);
+        System.out.println(DASHING_LINE);
         for (Pet pets : petList){
             if (pets.getOwnerName().equalsIgnoreCase(name)){
                 System.out.println(pets);
@@ -109,10 +108,11 @@ public class AnimalHospital {
     }
 
     public Pet printPetsBoarding(int month, int day, int year) throws IllegalDateException{
-        System.out.println(DASHINGLINE);
+        System.out.println(DASHING_LINE);
         System.out.printf("List of pets boarded on %d / %d / %d \n", month, day, year);
+        System.out.println("reached");
         for (Pet pets : petList){
-            if (pets.boarding(month, day, year)){
+            if (pets.getBoardingStartDate().compareTo(LocalDate.of(year, month, day))==0){
                   System.out.println(pets);
                   return pets;
             }

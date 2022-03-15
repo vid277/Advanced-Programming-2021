@@ -130,6 +130,7 @@ class Screen_GUI {
                                     String prevLine = runFiles.getPets().get(x).guiPrint();
                                     dateFieldOutput.append(prevLine);
                                 }
+                                fileChooser.setEnabled(false);
                             } catch (FileNotFoundException e) {
                                 JOptionPane.showMessageDialog(frame, "Please choose a '.txt' file!");
                             }
@@ -147,7 +148,7 @@ class Screen_GUI {
             String[] buttons = {"Search by pet name", "Search by owner name", "Cancel"};
 
             int choicePane = JOptionPane.showOptionDialog(frame, "Choose a search method: ", "Search Method",
-                    JOptionPane.DEFAULT_OPTION, 2, null, buttons, buttons[2]);
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, buttons, buttons[2]);
 
             System.out.println(choicePane);
 
@@ -197,9 +198,17 @@ class Screen_GUI {
                 dateField.setText("");
             } else {
                 if (checkIfValid(date)) {
-                    int month = Integer.parseInt(date.substring(0, 2));
-                    int day = Integer.parseInt(date.substring(3, 5));
-                    int year = Integer.parseInt(date.substring(6, 10));
+                    int month = 0;
+                    int day = 0;
+                    int year = 0;
+
+                    try {
+                        month = Integer.parseInt(date.substring(0, 2));
+                        day = Integer.parseInt(date.substring(3, 5));
+                        year = Integer.parseInt(date.substring(6, 10));
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(frame, "Date invalid!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                    }
 
                     try {
                         if (fileState) {
@@ -266,7 +275,7 @@ class Screen_GUI {
                                                 if (type.equalsIgnoreCase("dog")){
                                                     size = JOptionPane.showInputDialog(frame, "Input dog size!");
                                                     if (size != null  && !size.equals("") && !size.equals(" ")){
-                                                        JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
+                                                        JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.ERROR_MESSAGE);
                                                         try {
                                                             sendDataDog(type, ownerName, ownerEmail, petName, color, gender, size);
                                                         } catch (FileNotFoundException e) {
@@ -280,7 +289,7 @@ class Screen_GUI {
                                                 else if (type.equalsIgnoreCase("cat")){
                                                     hairLength = JOptionPane.showInputDialog(frame, "Input cat hair length!");
                                                     if (hairLength != null && !hairLength.equals("") && !hairLength.equals(" ")){
-                                                        JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
+                                                        JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.ERROR_MESSAGE);
                                                         try {
                                                             sendDataCat(type, ownerName, ownerEmail, petName, color, gender, hairLength);
                                                         } catch (FileNotFoundException e) {
@@ -292,7 +301,7 @@ class Screen_GUI {
                                                     }
                                                 }
                                                 else if (type.equalsIgnoreCase("bird")){
-                                                    JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.YES_OPTION);
+                                                    JOptionPane.showMessageDialog(frame, "Confirm?", "Save", JOptionPane.ERROR_MESSAGE);
                                                     try {
                                                         sendDataBird(type, ownerName, ownerEmail, petName, color, gender);
                                                     } catch (FileNotFoundException e) {

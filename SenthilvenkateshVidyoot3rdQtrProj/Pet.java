@@ -1,12 +1,11 @@
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class Pet implements Boardable {
 
-    private String name;
-    private String ownerName;
-    private String color;
+    private final String name;
+    private final String ownerName;
+    private final String color;
     private String ownerEmail;
     protected int Gender;
 
@@ -15,11 +14,6 @@ public class Pet implements Boardable {
 
     private static final LocalDate MINDATE = LocalDate.of(2012, 1, 1);
     private static final LocalDate MAXDATE = LocalDate.of(2022, 12, 31);
-
-    public static final int MALE = 0;
-    public static final int FEMALE = 1;
-    public static final int SPAYED= 2;
-    public static final int NEUTERED = 3;
 
     public static final String EMAIL_VALIDATION_PATTERN = "^(.+)@(\\S+)$";
 
@@ -49,19 +43,14 @@ public class Pet implements Boardable {
     }
 
     public String getGender() {
-        switch(Gender) {
-            case 404:
-                return "Unspecified";
-            case 0:
-                return "Male";
-            case 1:
-                return "Female";
-            case 2:
-                return "Neutered";
-            case 3:
-                return "Spayed";
-        }
-        return "unspecified";
+        return switch (Gender) {
+            case 404 -> "Unspecified";
+            case 0 -> "Male";
+            case 1 -> "Female";
+            case 2 -> "Neutered";
+            case 3 -> "Spayed";
+            default -> "unspecified";
+        };
     }
 
     public String getEmail() {
@@ -106,7 +95,6 @@ public class Pet implements Boardable {
     }
 
     public boolean boarding(int month, int day, int year) {
-        boolean isBoarded = false;
 
         if(month < 0 ||  month > 12 || day < 0 || day > 31) {
             throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
@@ -124,11 +112,16 @@ public class Pet implements Boardable {
             }
         }
 
-        return boardingStartDate.compareTo(boardingDate) <= 0 && boardingDate.compareTo(boardingEndDate) <= 0;
+        if (boardingStartDate.compareTo(boardingDate) != 0){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
-    public String getBoardingStartDate() {
-        return boardingStartDate.toString();
+    public LocalDate getBoardingStartDate() {
+        return boardingStartDate;
     }
 
     public String getBoardingEndDate() {
