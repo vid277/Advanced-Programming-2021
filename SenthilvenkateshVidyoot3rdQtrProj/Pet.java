@@ -95,29 +95,19 @@ public class Pet implements Boardable {
     }
 
     public boolean boarding(int month, int day, int year) {
-
-        if(month < 0 ||  month > 12 || day < 0 || day > 31) {
+        if(month < 0 || day < 0 || month > 12 || day > 31) {
             throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
         }
 
-        if(boardingStartDate == null || boardingEndDate == null) {
+        if(boardingStartDate == null || boardingEndDate == null)
             return false;
+
+        LocalDate current = LocalDate.of(year, month, day);
+        if(current.isBefore(MINDATE) || current.isAfter(MAXDATE)) {
+            throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
         }
 
-        LocalDate boardingDate = LocalDate.of(year, month, day);
-
-        if((!boardingEndDate.isBefore(boardingStartDate))){
-            if(boardingDate.isBefore(MINDATE) || boardingDate.isAfter(MAXDATE)) {
-                throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
-            }
-        }
-
-        if (boardingStartDate.compareTo(boardingDate) != 0){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return current.compareTo(boardingStartDate) >= 0 && current.compareTo(boardingEndDate) <= 0;
     }
 
     public LocalDate getBoardingStartDate() {

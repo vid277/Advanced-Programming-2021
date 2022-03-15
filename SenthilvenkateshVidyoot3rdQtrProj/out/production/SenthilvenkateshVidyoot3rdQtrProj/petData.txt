@@ -8,4 +8,3 @@ BIRD
 Moose Patankar pptankar@imsa.edu purple female
 BIRD
 Horseshoe Pandya pnamrata@imsa.edu grey male
-
