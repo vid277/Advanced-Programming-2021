@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class Pet implements Boardable {
@@ -80,6 +81,7 @@ public class Pet implements Boardable {
         }
 
         LocalDate StartBoardingDate = LocalDate.of(year, month, day);
+
         if((boardingEndDate == null || !StartBoardingDate.isAfter(boardingEndDate))){
             if(!StartBoardingDate.isBefore(MINDATE) && StartBoardingDate.isBefore(MAXDATE)) {
                 boardingStartDate = StartBoardingDate;
@@ -95,9 +97,10 @@ public class Pet implements Boardable {
 
         LocalDate EndBoardingDate = LocalDate.of(year, month, day);
 
-        if(boardingStartDate == null){
-            if(!EndBoardingDate.isBefore(MINDATE) && EndBoardingDate.isBefore(MAXDATE) && !boardingEndDate.isBefore(boardingStartDate)) {
-                boardingStartDate = EndBoardingDate;
+        if(boardingStartDate == null || !EndBoardingDate.isBefore(boardingStartDate)){
+            if(!EndBoardingDate.isBefore(MINDATE) && !EndBoardingDate.isAfter(MAXDATE)) {
+                boardingEndDate = EndBoardingDate;
+                return;
             }
         }
     }
@@ -115,11 +118,11 @@ public class Pet implements Boardable {
 
         LocalDate boardingDate = LocalDate.of(month, day, year);
 
-       if((!boardingEndDate.isBefore(boardingStartDate))){
-           if(boardingDate.isBefore(MINDATE) || boardingDate.isAfter(MAXDATE)) {
-               throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
-           }
-       }
+        if((!boardingEndDate.isBefore(boardingStartDate))){
+            if(boardingDate.isBefore(MINDATE) || boardingDate.isAfter(MAXDATE)) {
+                throw new IllegalDateException("Illegal Date:", month + "/" + day + "/"+ year);
+            }
+        }
 
         return boardingStartDate.compareTo(boardingDate) <= 0 && boardingDate.compareTo(boardingEndDate) <= 0;
     }
@@ -140,4 +143,9 @@ public class Pet implements Boardable {
             throw new IllegalEmailException("Illegal Email: " + ownerEmail);
         }
     }
+
+    public String guiPrint(){
+        return String.format("\u2192 %s is owned by %s. Started boarding on %s and ended boarding on %s. \n\n", getPetName().toUpperCase(), getOwnerName(), boardingStartDate, getBoardingEndDate());
+    }
+
 }

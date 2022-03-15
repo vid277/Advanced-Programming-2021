@@ -15,7 +15,7 @@ public class AnimalHospital {
     public static ArrayList<Pet> petList = new ArrayList<Pet>();
 
     public LocalDate StartDatesBoarding;
-    public LocalDate EndDate;
+    public static LocalDate EndDate;
     public LocalDate durationDate;
 
     public static final int nameIndex = 0;
@@ -35,8 +35,8 @@ public class AnimalHospital {
         if (isExists){
             scanner = new Scanner(storeFile);
 
-            LocalDate StartDate = LocalDate.of(rand.nextInt(10) + 2012, rand.nextInt(11)+1, rand.nextInt(30)+1);
-            EndDate = StartDate.plus(rand.nextInt(121), ChronoUnit.DAYS);
+            LocalDate StartDate = LocalDate.of(rand.nextInt(10) + 2012, rand.nextInt(11)+1, rand.nextInt(28)+1);
+            EndDate = StartDate.plus(rand.nextInt(92), ChronoUnit.DAYS);
 
             durationDate = EndDate.minus(StartDate.getMonthValue(), ChronoUnit.DAYS);
 
@@ -113,7 +113,7 @@ public class AnimalHospital {
         System.out.printf("List of pets boarded on %d / %d / %d \n", month, day, year);
         for (Pet pets : petList){
             if (pets.boarding(month, day, year)){
-                System.out.println(pets);
+                  System.out.println(pets);
                 return pets;
             }
         }

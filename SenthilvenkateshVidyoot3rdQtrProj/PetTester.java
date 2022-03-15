@@ -17,9 +17,7 @@ public class PetTester {
             trial1.printPetInfoByName("smiley");
             trial1.printPetInfoByOwner("Sanders");
             trial1.printPetsBoarding(11, 10, 2021);
-        } catch (IllegalEmailException e){
-            System.out.println(e);
-        } catch (IllegalDateException e){
+        } catch (IllegalEmailException | IllegalDateException e){
             System.out.println(e);
         }
 
@@ -27,7 +25,7 @@ public class PetTester {
     }
 
     public static void main (String[] args) throws IOException {
-        //new PetTester("petData.txt");
-        new Screen_GUI();
+        new PetTester("petData.txt");
+        //new Screen_GUI();
     }
 }
