@@ -7,23 +7,46 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.regex.Pattern;
-
 import static javax.swing.JOptionPane.showInputDialog;
 
+/**
+ * This is the screen gui class that displays a user-friendly interface
+ *
+ * @author Vidyoot Senthilvenkatesh
+ * @version 3/15/2022
+ */
 class Screen_GUI {
+
+    /**
+     * constants for BOLD_LARGE and NORMAL_MEDIUM that are used to set the font size for the buttons and some labels
+     */
     public static final Font Bold_LARGE = new Font(Font.SANS_SERIF, Font.BOLD, 22);
     public static final Font NORMAL_MEDIUM = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
+
+    //Stores the name of the file
     public String file;
+
+    //Checks whether the user has already input a file or not
     public boolean fileState = false;
 
+    /**
+     * Instantiates the gui and also displays the interface to the user
+     */
     public Screen_GUI() {
 
-
+        //The frame that is displayed to the user
         JFrame frame = new JFrame("Query");
+
+        //Stops the application from running when closed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         frame.setSize(500, 300);
         frame.setMaximumSize(new Dimension(500, 350));
+
+        //The window cannot be resized
         frame.setResizable(false);
+
+        //All the components that are added to the screen
         JLabel title = new JLabel("Animal Hospital", JLabel.CENTER);
         JButton query = new JButton("Query");
         JButton fileChooser = new JButton("Choose a file");
@@ -33,14 +56,17 @@ class Screen_GUI {
         JLabel monthLabel = new JLabel("mm/dd/yyyy");
         title.setVerticalAlignment(SwingConstants.CENTER);
         JButton userFilters = new JButton("Search Options");
+
+        //Using the null layout manager rather than the default java layout manager
         frame.setLayout(null);
         JScrollPane Scroll = new JScrollPane(dateFieldOutput);
         JButton addLog = new JButton("Add a log");
         Scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
+        //Adds button to content pane of frame
         frame.add(title);
         frame.add(dateField);
-        frame.add(query); // Adds Button to content pane of frame
+        frame.add(query);
         frame.add(fileChooser);
         frame.add(fileChooseOutput);
         frame.add(addLog);
