@@ -5,6 +5,12 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
+/**
+ * The AnimalHospital class stores pets of each type, including all of their data (owner, name, etc.).
+ *
+ * @author Vidyoot Senthilvenkatesh
+ * @version 3/16/2022
+ */
 public class AnimalHospital {
 
     /**
@@ -69,11 +75,11 @@ public class AnimalHospital {
                     //splits the line by spaces
                     String[] information = scanner.nextLine().split(" ");
 
-                    //supplies information to the corresponding constructor
+                    //supplies information to the corresponding constructor in the cat class
                     Cat cat = new Cat(information[nameIndex], information[ownerNameIndex], information[ownerEmailIndex], information[petColorIndex], information[otherInformationIndex]);
                     cat.setGender(checkGender(information[genderIndex]));
 
-                    //setting the boarding start and end dates
+                    //setting the boarding start and end dates for the cat class
                     cat.setBoardStart(StartDate.getMonthValue(), StartDate.getDayOfMonth(), StartDate.getYear());
                     cat.setBoardEnd(EndDate.getMonthValue(), EndDate.getDayOfMonth(), EndDate.getYear());
 
@@ -84,11 +90,11 @@ public class AnimalHospital {
                     //splits the line by spaces
                     String[] information = scanner.nextLine().split(" ");
 
-                    //supplies information to the corresponding constructor
+                    //supplies information to the corresponding constructor in the dog class
                     Dog dog = new Dog(information[nameIndex], information[ownerNameIndex], information[ownerEmailIndex], information[petColorIndex], information[otherInformationIndex]);
                     dog.setGender(checkGender(information[genderIndex]));
 
-                    //setting the boarding start and end dates
+                    //setting the boarding start and end dates for the dog
                     dog.setBoardStart(StartDate.getMonthValue(), StartDate.getDayOfMonth(), StartDate.getYear());
                     dog.setBoardEnd(EndDate.getMonthValue(), EndDate.getDayOfMonth(), EndDate.getYear());
 
@@ -99,11 +105,11 @@ public class AnimalHospital {
                     //splits the line by spaces
                     String[] information = scanner.nextLine().split(" ");
 
-                    //supplies information to the corresponding constructor
+                    //supplies information to the corresponding constructor in the bird class
                     Bird bird = new Bird(information[nameIndex], information[ownerNameIndex], information[ownerEmailIndex], information[petColorIndex]);
                     bird.setGender(checkGender(information[genderIndex]));
 
-                    //setting the boarding start and end dates
+                    //setting the boarding start and end dates for the bird class
                     bird.setBoardStart(StartDate.getMonthValue(), StartDate.getDayOfMonth(), StartDate.getYear());
                     bird.setBoardEnd(EndDate.getMonthValue(), EndDate.getDayOfMonth(), EndDate.getYear());
 

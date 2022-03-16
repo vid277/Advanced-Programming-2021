@@ -37,6 +37,7 @@ public class PetTester {
         trial1.printPetInfoByName("Oakley");
         trial1.printPetInfoByName("Patankar");
 
+        //Another label
         System.out.println();
         System.out.println("Printing information given owner name");
         System.out.println();
@@ -46,6 +47,7 @@ public class PetTester {
         trial1.printPetInfoByOwner("Oakley");
         trial1.printPetInfoByOwner("Smith");
 
+        //Printing animals by boarding date
         trial1.printPetsBoarding(11, 10, 2022);
         trial1.printPetsBoarding(12, 14, 2012);
 
