@@ -216,8 +216,8 @@ class Screen_GUI {
                             if (month < 0 || month > 12 || day < 0 || day > 31) {
                                 throw new IllegalDateException("Illegal Date:", month + "/" + day + "/" + year);
                             } else {
-                                    if (runFiles.printPetsBoarding(month, day, year) != null){
-                                        dateFieldOutput.setText(runFiles.printPetsBoarding(month, day, year).toString());
+                                    if (runFiles.printPetsBoarding(month, day, year).size() != 0){
+                                        dateFieldOutput.setText(runFiles.printPetsBoarding(month, day, year).toString().replace("[", "").replace("]", ""));
                                     }
                                     else {
                                         fileChooseOutput.setText("No animal found for this date!");
