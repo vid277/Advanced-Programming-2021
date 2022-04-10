@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Searching {
     public int linearSearch(int[] arrayRandom, int numberToSearch) {
         int index = -1;
@@ -30,6 +27,17 @@ public class Searching {
                 high = middle - 1;
         }
         return -1;
+    }
+
+    public int SortedListSearch(int[] sortedArray, int numberToSearch){
+        int index = -1;
+
+        for (int i = 0; i < sortedArray.length; i++) {
+            if (sortedArray[i] == numberToSearch) {
+                index = i;
+            }
+        }
+        return index;
     }
 }
 

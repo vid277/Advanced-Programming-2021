@@ -52,33 +52,43 @@ public class Tester {
 
             return ((endTime-startTime)/100000);
         }
+        else if (searchType.equals("Sorted List Search")){
+
+            long startTime = System.nanoTime();
+
+            for (int i = 0; i < randomizeLength/2; i++){
+                int searchList = search.SortedListSearch(sortedArray, randomizedArray[i]);
+                if (searchList == -1){
+                    System.out.println("Number not found in list");
+                }
+            }
+
+            long endTime = System.nanoTime();
+
+            return ((endTime-startTime)/100000);
+        }
 
         return -1;
     }
 
     public static void main(String[] args){
-        long[] LinearDataPoints = new long[8];
-        long[] BinaryDataPoints = new long[8];
+        long[] LinearDataPoints = new long[12];
+        long[] BinaryDataPoints = new long[12];
+        long[] SortedListSearchDataPoints = new long[12];
 
-        LinearDataPoints[0] = new Tester().TestMethods("Linear Search", 500);
-        LinearDataPoints[1] = new Tester().TestMethods("Linear Search", 1000);
-        LinearDataPoints[2] = new Tester().TestMethods("Linear Search", 5000);
-        LinearDataPoints[3] = new Tester().TestMethods("Linear Search", 10000);
-        LinearDataPoints[4] = new Tester().TestMethods("Linear Search", 50000);
-        LinearDataPoints[5] = new Tester().TestMethods("Linear Search", 100000);
-        LinearDataPoints[6] = new Tester().TestMethods("Linear Search", 200000);
-        LinearDataPoints[7] = new Tester().TestMethods("Linear Search", 300000);
-
-        BinaryDataPoints[0] = new Tester().TestMethods("Binary Search", 500);
-        BinaryDataPoints[1] = new Tester().TestMethods("Binary Search", 1000);
-        BinaryDataPoints[2] = new Tester().TestMethods("Binary Search", 5000);
-        BinaryDataPoints[3] = new Tester().TestMethods("Binary Search", 10000);
-        BinaryDataPoints[4] = new Tester().TestMethods("Binary Search", 50000);
-        BinaryDataPoints[5] = new Tester().TestMethods("Binary Search", 100000);
-        BinaryDataPoints[6] = new Tester().TestMethods("Binary Search", 200000);
-        BinaryDataPoints[7] = new Tester().TestMethods("Binary Search", 300000);
+        int currentDataSize = 1000;
+        for (int i = 0; i < 12; i++){
+            LinearDataPoints[i] = new Tester().TestMethods("Linear Search", currentDataSize);
+            BinaryDataPoints[i] = new Tester().TestMethods("Binary Search", currentDataSize);
+            SortedListSearchDataPoints[i] = new Tester().TestMethods("Sorted List Search", currentDataSize);
+            currentDataSize += 10000;
+        }
 
         System.out.println(Arrays.toString(LinearDataPoints));
         System.out.println(Arrays.toString(BinaryDataPoints));
+        System.out.println(Arrays.toString(SortedListSearchDataPoints));
+
+        //new Graph();
+        new UpgradedGraph(800, 500, LinearDataPoints, BinaryDataPoints, SortedListSearchDataPoints);
     }
 }
