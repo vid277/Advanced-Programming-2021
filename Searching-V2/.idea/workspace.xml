@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c0bbc440-82ba-47ce-b67b-1dc6c11882d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Canvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/GraphDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/GraphDefault.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/GraphV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/GraphV3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/RandomRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/RandomRun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/Searching.java" beforeDir="false" afterPath="$PROJECT_DIR$/Searching.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vidyoot-Senthilvenkatesh-Searching_Algorithms/UpgradedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/UpgradedGraph.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="27j7CvtqHp8gHRtw57ECFqllIPK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vidyo\OneDrive\Desktop\Advanced-Programming-2022\Advanced-Programming-2021\Searching-V2" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tester" />
+      <module name="Searching-V2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0bbc440-82ba-47ce-b67b-1dc6c11882d1" name="Changes" comment="" />
+      <created>1649821518523</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649821518523</updated>
+      <workItem from="1649821519311" duration="13000" />
+      <workItem from="1649821540857" duration="1826000" />
+      <workItem from="1649823485286" duration="1380000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
