@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0bbc440-82ba-47ce-b67b-1dc6c11882d1" name="Changes" comment="ADPRO MOMENT">
-      <change afterPath="$PROJECT_DIR$/Canvas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FinalGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphV4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GraphV5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Searching.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TesterV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing.java" afterDir="false" />
+    <list default="true" id="c0bbc440-82ba-47ce-b67b-1dc6c11882d1" name="Changes" comment="I found that graphing is not fun">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Searching-V2/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/Canvas$CanvasPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Searching-V2/Canvas$CanvasPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/Canvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Searching-V2/Canvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Searching-V2/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/GraphDefault.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/GraphV3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Searching-V2/GraphV3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/RandomRun.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/Searching.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Searching-V2/Searching.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/Tester.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Searching-V2/UpgradedGraph.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +93,8 @@
       <workItem from="1649890964602" duration="832000" />
       <workItem from="1649943570446" duration="13671000" />
       <workItem from="1650042246385" duration="841000" />
-      <workItem from="1650156515866" duration="149000" />
+      <workItem from="1650156515866" duration="7819000" />
+      <workItem from="1650331582281" duration="62000" />
     </task>
     <task id="LOCAL-00001" summary="ADPRO MOMENT">
       <created>1649825045717</created>
@@ -122,7 +103,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649825045717</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="I found that graphing is not fun">
+      <created>1650165345276</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650165345276</updated>
+    </task>
+    <task id="LOCAL-00003" summary="I found that graphing is not fun">
+      <created>1650165357146</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650165357146</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ADPRO MOMENT" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADPRO MOMENT" />
+    <MESSAGE value="I found that graphing is not fun" />
+    <option name="LAST_COMMIT_MESSAGE" value="I found that graphing is not fun" />
   </component>
 </project>
