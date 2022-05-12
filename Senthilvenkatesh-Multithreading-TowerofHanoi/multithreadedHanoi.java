@@ -1,7 +1,7 @@
 public class multithreadedHanoi extends Thread{
 
     public void run(){
-        moveDisks(64,1, 2, 3);
+        moveDisks(1028,1, 2, 3);
     }
 
     public int moveDisks(int num, int fromPeg, int toPeg, int TempPeg){
@@ -28,6 +28,23 @@ public class multithreadedHanoi extends Thread{
         Thread t12 = new Thread(new multithreadedHanoi());
         Thread t13 = new Thread(new multithreadedHanoi());
         Thread t14 = new Thread(new multithreadedHanoi());
+        Thread t15 = new Thread(new multithreadedHanoi());
+        Thread t16 = new Thread(new multithreadedHanoi());
+        Thread t18 = new Thread(new multithreadedHanoi());
+        Thread t19 = new Thread(new multithreadedHanoi());
+        Thread t20 = new Thread(new multithreadedHanoi());
+        Thread t21 = new Thread(new multithreadedHanoi());
+        Thread t22 = new Thread(new multithreadedHanoi());
+        Thread t23 = new Thread(new multithreadedHanoi());
+        Thread t24 = new Thread(new multithreadedHanoi());
+        Thread t25 = new Thread(new multithreadedHanoi());
+        Thread t26 = new Thread(new multithreadedHanoi());
+        Thread t27 = new Thread(new multithreadedHanoi());
+        Thread t28 = new Thread(new multithreadedHanoi());
+        Thread t29 = new Thread(new multithreadedHanoi());
+        Thread t30 = new Thread(new multithreadedHanoi());
+        Thread t31 = new Thread(new multithreadedHanoi());
+        Thread t32 = new Thread(new multithreadedHanoi());
 
         t1.start();
         t2.start();
@@ -43,6 +60,23 @@ public class multithreadedHanoi extends Thread{
         t12.start();
         t13.start();
         t14.start();
+        t15.start();
+        t16.start();
+        t18.start();
+        t19.start();
+        t20.start();
+        t21.start();
+        t22.start();
+        t23.start();
+        t24.start();
+        t25.start();
+        t26.start();
+        t27.start();
+        t28.start();
+        t29.start();
+        t30.start();
+        t31.start();
+        t32.start();
     }
 
 }
