@@ -21,19 +21,35 @@ public class LinkListQueue <T> implements Queue<T>{
 
     /**
      * Adds a value on to the tail of the list
+     * If the size of the list is greater than 10, the thread waits
+     * else, the thread notifies all the other threads.
      * @param value the value to add to the end of the list
      */
     @Override
-    public void enqueue(T value) {
+    public synchronized void enqueue(T value) throws InterruptedException {
+        while (list.size() >= 10) {
+            System.out.println("Producer is waiting");
+            wait();
+        }
         list.addLast(value);
+        notifyAll();
     }
 
     /**
      * Removes the first value in the list
+     * If the list is empty, the thread waits, else, the thread wakes up all the other threads and
+     * removes the first item in the list.
+     * @return the item that was last removed
      */
     @Override
-    public void dequeue() {
-        list.removeFirst();
+    public synchronized T dequeue() throws InterruptedException {
+        while (list.isEmpty()) {
+            System.out.println("Consumer is waiting");
+            wait();
+        }
+        T returnItem = list.removeFirst();
+        notifyAll();
+        return returnItem;
     }
 
     /**

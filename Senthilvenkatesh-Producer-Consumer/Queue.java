@@ -5,8 +5,8 @@
  * @date 5/7/2022
  */
 public interface Queue<T> {
-    void enqueue(T value);
-    void dequeue();
+    void enqueue(T value) throws InterruptedException;
+    T dequeue() throws InterruptedException;
     T peek();
     boolean isEmpty();
     int size();
